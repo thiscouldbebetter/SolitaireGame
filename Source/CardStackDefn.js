@@ -1,24 +1,25 @@
 
-function CardStackDefn
-(
-	name,
-	cardsSelectableMax,
-	areFaceDownCardsSelectable,
-	showTopCardAfterMove,
-	spacing,
-	dropCardStackFromCursorOnto
-)
+class CardStackDefn
 {
-	this.name = name;
-	this.cardsSelectableMax = cardsSelectableMax;
-	this.areFaceDownCardsSelectable = areFaceDownCardsSelectable;
-	this.showTopCardAfterMove = showTopCardAfterMove;
-	this.spacing = spacing;
-	this.dropCardStackFromCursorOnto = dropCardStackFromCursorOnto;
-}
+	constructor
+	(
+		name,
+		cardsSelectableMax,
+		areFaceDownCardsSelectable,
+		showTopCardAfterMove,
+		spacing,
+		dropCardStackFromCursorOnto
+	)
+	{
+		this.name = name;
+		this.cardsSelectableMax = cardsSelectableMax;
+		this.areFaceDownCardsSelectable = areFaceDownCardsSelectable;
+		this.showTopCardAfterMove = showTopCardAfterMove;
+		this.spacing = spacing;
+		this.dropCardStackFromCursorOnto = dropCardStackFromCursorOnto;
+	}
 
-{
-	CardStackDefn.prototype.cardDefnSet = function()
+	cardDefnSet()
 	{
 		return Globals.Instance.universe.gameDefn.cardDefnSet;
 	}

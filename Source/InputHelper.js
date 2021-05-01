@@ -1,23 +1,19 @@
 
-function InputHelper()
+class InputHelper
 {
-	// do nothing
-}
-
-{
-	InputHelper.prototype.clear = function()
+	clear()
 	{
 		this.keyCodePressed = null;
 	}
 
-	InputHelper.prototype.initialize = function()
+	initialize()
 	{
 		document.body.onkeydown = this.handleEventKeyDown.bind(this);
 	}
 
 	// events
 
-	InputHelper.prototype.handleEventKeyDown = function(event)
+	handleEventKeyDown(event)
 	{
 		this.keyCodePressed = "_" + event.keyCode;
 

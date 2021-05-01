@@ -1,19 +1,20 @@
 
-function Card(defnName, isFaceUp)
+class Card
 {
-	this.defnName = defnName;
-	this.isFaceUp = isFaceUp;
-}
+	constructor(defnName, isFaceUp)
+	{
+		this.defnName = defnName;
+		this.isFaceUp = isFaceUp;
+	}
 
-{
-	Card.prototype.defn = function()
+	defn()
 	{
 		var universe = Globals.Instance.universe;
 		var cardDefns = universe.gameDefn.cardDefnSet.cardDefns;
 		return cardDefns[this.defnName];
 	}
 
-	Card.prototype.size = function()
+	size()
 	{
 		return this.defn().size();
 	}

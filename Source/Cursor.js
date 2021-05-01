@@ -1,14 +1,15 @@
 
-function Cursor()
+class Cursor
 {
-	this.cardStackIndexSelected = 0;
-	this.numberOfCardsSelected = 0;
-	this.cardStackBeingMoved = null;
-	this.cardStackBeingMovedFrom = null;
-}
+	constructor()
+	{
+		this.cardStackIndexSelected = 0;
+		this.numberOfCardsSelected = 0;
+		this.cardStackBeingMoved = null;
+		this.cardStackBeingMovedFrom = null;
+	}
 
-{
-	Cursor.prototype.cardStackSelectNextInDirection = function(layout, directionSpecified)
+	cardStackSelectNextInDirection(layout, directionSpecified)
 	{
 		var stackCurrent = this.cardStackSelected();
 		var indexOfBestStackSoFar = null;
@@ -69,7 +70,7 @@ function Cursor()
 		}
 	}
 
-	Cursor.prototype.cardStackSelected = function()
+	cardStackSelected()
 	{
 		var returnValue = null;
 
@@ -83,7 +84,7 @@ function Cursor()
 		return returnValue;
 	}
 
-	Cursor.prototype.cardStackSelectedTakeOrDrop = function()
+	cardStackSelectedTakeOrDrop()
 	{
 		var cardStackSelected = this.cardStackSelected();
 		if (cardStackSelected != null)
@@ -119,7 +120,7 @@ function Cursor()
 		}
 	}
 
-	Cursor.prototype.dropCardStackBeingMovedOntoOther = function(cardStackSelected)
+	dropCardStackBeingMovedOntoOther(cardStackSelected)
 	{
 		cardStackSelected.add(this.cardStackBeingMoved);
 		this.cardStackBeingMoved = null;
@@ -132,7 +133,7 @@ function Cursor()
 		this.cardStackBeingMovedFrom = null;
 	}
 
-	Cursor.prototype.cardStackSelectedDeselect = function()
+	cardStackSelectedDeselect()
 	{
 		if (this.cardStackBeingMoved != null)
 		{
@@ -143,7 +144,7 @@ function Cursor()
 		}
 	}
 
-	Cursor.prototype.cardStackSelectionCountAdd = function(offset)
+	cardStackSelectionCountAdd(offset)
 	{
 		if
 		(

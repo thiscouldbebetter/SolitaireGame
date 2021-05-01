@@ -1,6 +1,9 @@
 
-function Layout(cardStacks)
+class Layout
 {
-	this.cardStacks = cardStacks;
-	this.cardStacks.addLookups("name");
+	constructor(cardStacks)
+	{
+		this.cardStacks = cardStacks;
+		this.cardStacks.addLookups("name");
+	}
 }

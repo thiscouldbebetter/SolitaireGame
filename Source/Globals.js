@@ -1,17 +1,9 @@
 
-function Globals()
+class Globals
 {
-	// do nothing
-}
+	static Instance = new Globals();
 
-{
-	// instance
-
-	Globals.Instance = new Globals();
-
-	// methods
-
-	Globals.prototype.initialize = function(viewSizeInPixels, universe)
+	initialize(viewSizeInPixels, universe)
 	{
 		this.displayHelper = new DisplayHelper();
 		this.displayHelper.initialize(viewSizeInPixels);
@@ -25,7 +17,7 @@ function Globals()
 		this.update();
 	}
 
-	Globals.prototype.update = function()
+	update()
 	{
 		this.universe.update();
 	}

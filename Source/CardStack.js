@@ -1,16 +1,17 @@
 
-function CardStack(name, defnName, pos, cards)
+class CardStack
 {
-	this.name = name;
-	this.defnName = defnName;
-	this.pos = pos;
-	this.cards = cards;
-}
+	constructor(name, defnName, pos, cards)
+	{
+		this.name = name;
+		this.defnName = defnName;
+		this.pos = pos;
+		this.cards = cards;
+	}
 
-{
 	// static methods
 
-	CardStack.fromCardDefns = function(name, defnName, pos, cardDefns)
+	static fromCardDefns(name, defnName, pos, cardDefns)
 	{
 		var cards = [];
 
@@ -34,17 +35,17 @@ function CardStack(name, defnName, pos, cards)
 
 	// instance methods
 
-	CardStack.prototype.add = function(other)
+	add(other)
 	{
 		this.cards.append(other.cards);
 	}
 
-	CardStack.prototype.defn = function()
+	defn()
 	{
 		return Globals.Instance.universe.gameDefn.cardStackDefns[this.defnName];
 	}
 
-	CardStack.prototype.drawCards = function(numberOfCardsToDraw, isFaceUp)
+	drawCards(numberOfCardsToDraw, isFaceUp)
 	{
 		var returnValues = [];
 
@@ -60,17 +61,17 @@ function CardStack(name, defnName, pos, cards)
 		return returnValues;
 	}
 
-	CardStack.prototype.drawCardsFaceDown = function(numberOfCardsToDraw)
+	drawCardsFaceDown(numberOfCardsToDraw)
 	{
 		return this.drawCards(numberOfCardsToDraw, false);
 	}
 
-	CardStack.prototype.drawCardsFaceUp = function(numberOfCardsToDraw)
+	drawCardsFaceUp(numberOfCardsToDraw)
 	{
 		return this.drawCards(numberOfCardsToDraw, true);
 	}
 
-	CardStack.prototype.drawCardsAsCardStack = function(numberOfCardsToDraw)
+	drawCardsAsCardStack(numberOfCardsToDraw)
 	{
 		var cardsDrawn = this.drawCardsFaceUp(numberOfCardsToDraw);
 
@@ -85,7 +86,7 @@ function CardStack(name, defnName, pos, cards)
 		return returnValue;
 	}
 
-	CardStack.prototype.flip = function()
+	flip()
 	{
 		for (var i = 0; i < this.cards.length; i++)
 		{
@@ -96,7 +97,7 @@ function CardStack(name, defnName, pos, cards)
 		return this;
 	}
 
-	CardStack.prototype.reverse = function()
+	reverse()
 	{
 		var numberOfCards = this.cards.length;
 
@@ -111,7 +112,7 @@ function CardStack(name, defnName, pos, cards)
 		return this;
 	}
 
-	CardStack.prototype.showTopCard = function()
+	showTopCard()
 	{
 		if (this.cards.length > 0)
 		{
@@ -119,7 +120,7 @@ function CardStack(name, defnName, pos, cards)
 		}
 	}
 
-	CardStack.prototype.size = function()
+	size()
 	{
 		var numberOfCards = this.cards.length;
 		var numberOfCardsMinusOne = numberOfCards - 1;
@@ -139,7 +140,7 @@ function CardStack(name, defnName, pos, cards)
 		return returnValue;
 	}
 
-	CardStack.prototype.shuffle = function()
+	shuffle()
 	{
 		var cardsToShuffle = this.cards;
 		var cardsShuffled = [];
@@ -160,7 +161,7 @@ function CardStack(name, defnName, pos, cards)
 		return this;
 	}
 
-	CardStack.prototype.topCard = function()
+	topCard()
 	{
 		var returnValue = null;
 
@@ -172,7 +173,7 @@ function CardStack(name, defnName, pos, cards)
 		return returnValue;
 	}
 
-	CardStack.prototype.topCardsAsCardStack = function(numberOfCardsToTake)
+	topCardsAsCardStack(numberOfCardsToTake)
 	{
 		var numberOfCardsTotal = this.cards.length;
 		var numberOfCardsToLeave = numberOfCardsTotal - numberOfCardsToTake;

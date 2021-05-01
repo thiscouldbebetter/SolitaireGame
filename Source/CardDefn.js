@@ -1,17 +1,18 @@
 
-function CardDefn(name, color)
+class CardDefn
 {
-	this.name = name;
-	this.color = color;
-}
+	constructor(name, color)
+	{
+		this.name = name;
+		this.color = color;
+	}
 
-{
-	CardDefn.prototype.cardDefnSet = function()
+	cardDefnSet()
 	{
 		return Globals.Instance.universe.gameDefn.cardDefnSet;
 	}
 
-	CardDefn.prototype.size = function()
+	size()
 	{
 		return this.cardDefnSet().cardSizeInPixels;
 	}

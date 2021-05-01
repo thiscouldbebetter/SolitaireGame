@@ -1,62 +1,63 @@
 
-function Coords(x, y)
+class Coords
 {
-	this.x = x;
-	this.y = y;
-}
+	constructor(x, y)
+	{
+		this.x = x;
+		this.y = y;
+	}
 
-{
-	Coords.prototype.add = function(other)
+	add(other)
 	{
 		this.x += other.x;
 		this.y += other.y;
 		return this;
 	}
 
-	Coords.prototype.clone = function()
+	clone()
 	{
 		return new Coords(this.x, this.y);
 	}
 
-	Coords.prototype.divideScalar = function(scalar)
+	divideScalar(scalar)
 	{
 		this.x /= scalar;
 		this.y /= scalar;
 		return this;
 	}
 
-	Coords.prototype.dotProduct = function(other)
+	dotProduct(other)
 	{
 		return (this.x * other.x + this.y * other.y);
 	}
 
-	Coords.prototype.magnitude = function()
+	magnitude()
 	{
 		return Math.sqrt(this.x * this.x + this.y * this.y);
 	}
 
-	Coords.prototype.multiplyScalar = function(scalar)
+	multiplyScalar(scalar)
 	{
 		this.x *= scalar;
 		this.y *= scalar;
 		return this;
 	}
 
-	Coords.prototype.overwriteWith = function(other)
+	overwriteWith(other)
 	{
 		this.x = other.x;
 		this.y = other.y;
 		return this;
 	}
 
-	Coords.prototype.overwriteWithXY = function(x, y)
+	overwriteWithXY(x, y)
 	{
 		this.x = x;
 		this.y = y;
 		return this;
 	}
 
-	Coords.prototype.subtract = function(other)
+	subtract(other)
 	{
 		this.x -= other.x;
 		this.y -= other.y;

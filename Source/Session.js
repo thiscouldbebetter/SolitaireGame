@@ -1,12 +1,13 @@
 
-function Session(cursor, layout)
+class Session
 {
-	this.cursor = cursor;
-	this.layout = layout;
-}
+	constructor(cursor, layout)
+	{
+		this.cursor = cursor;
+		this.layout = layout;
+	}
 
-{
-	Session.prototype.update = function()
+	update()
 	{
 		var inputHelper = Globals.Instance.inputHelper;
 		var keyCodePressed = inputHelper.keyCodePressed;

@@ -1,18 +1,19 @@
 
-function GameDefn(name, cardDefnSet, cardStackDefns, actions, layoutBuild)
+class GameDefn
 {
-	this.name = name;
-	this.cardDefnSet = cardDefnSet;
-	this.cardStackDefns = cardStackDefns;
-	this.actions = actions;
-	this.layoutBuild = layoutBuild;
+	constructor(name, cardDefnSet, cardStackDefns, actions, layoutBuild)
+	{
+		this.name = name;
+		this.cardDefnSet = cardDefnSet;
+		this.cardStackDefns = cardStackDefns;
+		this.actions = actions;
+		this.layoutBuild = layoutBuild;
 
-	this.cardStackDefns.addLookups("name");
-	this.actions.addLookups("keyCode");
-}
+		this.cardStackDefns.addLookups("name");
+		this.actions.addLookups("keyCode");
+	}
 
-{
-	GameDefn.solitaire = function()
+	static solitaire()
 	{
 		var cardDefnSetStandard = CardDefnSet.standard();
 
@@ -36,7 +37,7 @@ function GameDefn(name, cardDefnSet, cardStackDefns, actions, layoutBuild)
 					var cardToAccept = cardStackToAccept.cards[0];
 					var cardToAcceptDefn = cardToAccept.defn();
 
-					var ranks = Rank.Instances._All;
+					var ranks = Rank.Instances()._All;
 					var rankCodeOfCardToAccept = cardToAcceptDefn.name.substr(1);
 					var rankValueOfCardToAccept = ranks[rankCodeOfCardToAccept].value;
 
@@ -94,7 +95,7 @@ function GameDefn(name, cardDefnSet, cardStackDefns, actions, layoutBuild)
 						{
 							var foundationName = "Foundation" + i;
 							var foundation = cardStacks[foundationName];
-							if (foundation.cards.length < Rank.Instances._All.length)
+							if (foundation.cards.length < Rank.Instances()._All.length)
 							{
 								areAllFoundationsFullSoFar = false;
 								break;
@@ -162,7 +163,7 @@ function GameDefn(name, cardDefnSet, cardStackDefns, actions, layoutBuild)
 
 						var areColorsDifferent = (cardToAcceptColor != cardAcceptingColor);
 
-						var ranks = Rank.Instances._All;
+						var ranks = Rank.Instances()._All;
 
 						var rankCodeOfCardAccepting = cardAcceptingDefn.name.substr(1);
 						var rankValueOfCardAccepting = ranks[rankCodeOfCardAccepting].value;
@@ -315,7 +316,7 @@ function GameDefn(name, cardDefnSet, cardStackDefns, actions, layoutBuild)
 			),
 		];
 
-		var layoutBuild = function()
+		var layoutBuild = () =>
 		{
 			var deck = CardStack.fromCardDefns
 			(

@@ -1,11 +1,7 @@
 
-function DisplayHelper()
+class DisplayHelper
 {
-	// do nothing
-}
-
-{
-	DisplayHelper.prototype.clear = function()
+	clear()
 	{
 		this.graphics.fillStyle = "White";
 		this.graphics.fillRect
@@ -24,7 +20,7 @@ function DisplayHelper()
 		);
 	}
 
-	DisplayHelper.prototype.drawCardAtPos = function(card, pos)
+	drawCardAtPos(card, pos)
 	{
 		var cardDefn = card.defn();
 		var cardSizeInPixels = card.size();
@@ -59,7 +55,7 @@ function DisplayHelper()
 		}
 	}
 
-	DisplayHelper.prototype.drawCardStack = function(cardStack)
+	drawCardStack(cardStack)
 	{
 		var drawPos = cardStack.pos.clone();
 
@@ -95,7 +91,7 @@ function DisplayHelper()
 		}
 	}
 
-	DisplayHelper.prototype.drawCursor = function(cursor)
+	drawCursor(cursor)
 	{
 		if (cursor.cardStackSelected() != null)
 		{
@@ -116,7 +112,7 @@ function DisplayHelper()
 		}
 	}
 
-	DisplayHelper.prototype.drawHighlightForCardStack = function(cardStackToHighlight)
+	drawHighlightForCardStack(cardStackToHighlight)
 	{
 		var highlightPos = cardStackToHighlight.pos.clone();
 		var highlightSize = cardStackToHighlight.size();
@@ -145,7 +141,7 @@ function DisplayHelper()
 		);
 	}
 
-	DisplayHelper.prototype.drawCursor_2 = function(cursor)
+	drawCursor_2(cursor)
 	{
 		var cardStackSelected = cursor.cardStackSelected();
 		var cardStackSelectedPos = cardStackSelected.pos;
@@ -169,7 +165,7 @@ function DisplayHelper()
 		this.drawCardStack(cardStackBeingMoved);
 	}
 
-	DisplayHelper.prototype.drawLayout = function(layout)
+	drawLayout(layout)
 	{
 		var cardStacks = layout.cardStacks;
 
@@ -180,14 +176,14 @@ function DisplayHelper()
 		}
 	}
 
-	DisplayHelper.prototype.drawSession = function(session)
+	drawSession(session)
 	{
 		this.clear();
 		this.drawLayout(session.layout);
 		this.drawCursor(session.cursor);
 	}
 
-	DisplayHelper.prototype.initialize = function(viewSizeInPixels)
+	initialize(viewSizeInPixels)
 	{
 		this.viewSizeInPixels = viewSizeInPixels;
 

@@ -1,8 +1,7 @@
 
-function NumberHelper()
-{}
+class NumberHelper
 {
-	NumberHelper.wrapNumberToRangeMax = function(numberToWrap, max)
+	static wrapNumberToRangeMax(numberToWrap, max)
 	{
 		while (numberToWrap < 0)
 		{

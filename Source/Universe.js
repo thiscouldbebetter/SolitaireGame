@@ -1,10 +1,12 @@
 
-function Universe(gameDefn)
+class Universe
 {
-	this.gameDefn = gameDefn;
-}
-{
-	Universe.prototype.initialize = function()
+	constructor(gameDefn)
+	{
+		this.gameDefn = gameDefn;
+	}
+
+	initialize()
 	{
 		var layout = this.gameDefn.layoutBuild();
 
@@ -15,7 +17,7 @@ function Universe(gameDefn)
 		);
 	}
 
-	Universe.prototype.update = function()
+	update()
 	{
 		this.session.update();
 	}

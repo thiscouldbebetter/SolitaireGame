@@ -1,6 +1,4 @@
 
-// extensions
-
 function ArrayExtensions()
 {
 	// do nothing

@@ -1,14 +1,26 @@
 
-function Rank(value, code)
+class Rank
 {
-	this.value = value;
-	this.code = code;
+	constructor(value, code)
+	{
+		this.value = value;
+		this.code = code;
+	}
+
+	static _instance;
+	static Instances()
+	{
+		if (Rank._instances == null)
+		{
+			Rank._instances = new Rank_Instances();
+		}
+		return Rank._instances;
+	}
 }
 
+class Rank_Instances
 {
-	Rank.Instances = new Rank_Instances();
-
-	function Rank_Instances()
+	constructor()
 	{
 		this._All =
 		[

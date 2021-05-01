@@ -1,9 +1,10 @@
 
-// classes
-
-function Action(name, keyCode, performForSession)
+class Action
 {
-	this.name = name;
-	this.keyCode = keyCode;
-	this.performForSession = performForSession;
+	constructor(name, keyCode, performForSession)
+	{
+		this.name = name;
+		this.keyCode = keyCode;
+		this.performForSession = performForSession;
+	}
 }
