@@ -1,7 +1,10 @@
 
-class DisplayHelper
+class Display
 {
-	clear()
+	graphics: any;
+	viewSizeInPixels: Coords
+
+	clear(): void
 	{
 		this.graphics.fillStyle = "White";
 		this.graphics.fillRect
@@ -20,7 +23,7 @@ class DisplayHelper
 		);
 	}
 
-	drawCardAtPos(card, pos)
+	drawCardAtPos(card: Card, pos: Coords): void
 	{
 		var cardDefn = card.defn();
 		var cardSizeInPixels = card.size();
@@ -55,7 +58,7 @@ class DisplayHelper
 		}
 	}
 
-	drawCardStack(cardStack)
+	drawCardStack(cardStack: CardStack): void
 	{
 		var drawPos = cardStack.pos.clone();
 
@@ -91,7 +94,7 @@ class DisplayHelper
 		}
 	}
 
-	drawCursor(cursor)
+	drawCursor(cursor: Cursor): void
 	{
 		if (cursor.cardStackSelected() != null)
 		{
@@ -112,7 +115,7 @@ class DisplayHelper
 		}
 	}
 
-	drawHighlightForCardStack(cardStackToHighlight)
+	drawHighlightForCardStack(cardStackToHighlight: CardStack): void
 	{
 		var highlightPos = cardStackToHighlight.pos.clone();
 		var highlightSize = cardStackToHighlight.size();
@@ -141,7 +144,7 @@ class DisplayHelper
 		);
 	}
 
-	drawCursor_2(cursor)
+	drawCursor_2(cursor: Cursor): void
 	{
 		var cardStackSelected = cursor.cardStackSelected();
 		var cardStackSelectedPos = cardStackSelected.pos;
@@ -165,7 +168,7 @@ class DisplayHelper
 		this.drawCardStack(cardStackBeingMoved);
 	}
 
-	drawLayout(layout)
+	drawLayout(layout: Layout): void
 	{
 		var cardStacks = layout.cardStacks;
 
@@ -176,14 +179,14 @@ class DisplayHelper
 		}
 	}
 
-	drawSession(session)
+	drawSession(session: Session): void
 	{
 		this.clear();
 		this.drawLayout(session.layout);
 		this.drawCursor(session.cursor);
 	}
 
-	initialize(viewSizeInPixels)
+	initialize(viewSizeInPixels: Coords): void
 	{
 		this.viewSizeInPixels = viewSizeInPixels;
 
