@@ -1,7 +1,44 @@
 <html>
 <body>
 
-<div id="divMain"></div>
+<div id="divUi">
+
+	<h3>Solitaire Game</h3>
+
+	<p>
+		Press the W, A, S, and D keys to move the cursor.
+		Press the up and down arrow keys to select cards to move,
+		the press the Enter key to pick up those cards,
+		or drop any cards that are already picked up.
+	</p>
+
+	<div id="divMain"></div>
+
+	<p>
+		The object of the game is to move all the cards
+		to the four goal cells on the upper-left part of the playfield,
+		with a single suit in each cell, and all the cards within
+		that suit sorted from the least (Ace) to the greatest (King) rank.
+	</p>
+
+	<p>
+		Below, in the "tableau", a card may only be placed
+		on either a card having the next-highest rank but with the opposite color,
+		or on a vacant space from which all the cards have been removed.
+	</p>
+
+	<p>
+		Cards may also be taken from the "kitty" at the upper right,
+		and placed in the goal cells, tableau, or in the discard pile
+		to the right of the kitty.  Cards may then be taken from the discard
+		pile as well.  In some more formal versions of Solitaire,
+		cards may only be moved from the kitty directly to the discard pile,
+		and only in groups of three, and cards can't be moved from the discard pile
+		back to the kitty after the kitty runs out of cards,
+		all of which makes the game harder.  But no such rules
+		are enforced in this version.
+	</p>
+</div>
 
 <script type="text/javascript" src="main.js"></script>
 <script type="text/javascript" src="Action.js"></script>
